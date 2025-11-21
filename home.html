@@ -1,0 +1,569 @@
+<!--
+Revamped homepage mockup for Drilsol Ltd.
+Single-file HTML demo. Replace placeholder images and copy with real assets.
+Created for: Drilsol website revamp pitch
+Author: ChatGPT (proposal)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Drilsol — Ground Water Experts (Demo)</title>
+    <meta
+      name="description"
+      content="Drilsol Ltd — Borehole drilling, pump installation, solar pumping systems. Demo mockup homepage."
+    />
+    <style>
+      :root {
+        --accent: #0b74de;
+        --accent-2: #0b9970;
+        --bg: #0f1720;
+        --muted: #6b7280;
+        --card: #0b1220;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        margin: 0;
+        color: #e6eef6;
+        background: linear-gradient(180deg, #031022 0%, #071226 100%);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+      }
+      nav ul {
+        display: flex;
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: 600;
+      }
+      .cta-primary {
+        background: var(--accent);
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 700;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: center;
+        padding: 36px 0;
+      }
+      .hero-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 12px;
+        padding: 28px;
+      }
+      h1 {
+        font-size: 34px;
+        margin: 0 0 8px;
+      }
+      p.lead {
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+        display: inline-block;
+      }
+      .btn-outline {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #dbeafe;
+        background: transparent;
+      }
+
+      /* Small stats */
+      .stats {
+        display: flex;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .stat {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .stat .num {
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .stat .label {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Services */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 26px 0;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 16px;
+        border-radius: 12px;
+      }
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .project {
+        border-radius: 10px;
+        overflow: hidden;
+        background: #071022;
+      }
+      .project img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+      .project .meta {
+        padding: 12px;
+      }
+
+      /* Benefits */
+      .benefits {
+        display: flex;
+        gap: 18px;
+        margin: 28px 0;
+      }
+      .benefit {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 16px;
+        border-radius: 12px;
+        flex: 1;
+      }
+
+      /* Contact / quote */
+      .quote {
+        background: linear-gradient(
+          180deg,
+          rgba(11, 116, 222, 0.12),
+          rgba(11, 153, 112, 0.06)
+        );
+        padding: 20px;
+        border-radius: 12px;
+        margin: 24px 0;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      input,
+      textarea,
+      select {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 10px;
+        border-radius: 8px;
+        color: inherit;
+      }
+      textarea {
+        grid-column: 1 / -1;
+        min-height: 120px;
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 28px 0;
+        margin-top: 28px;
+        color: var(--muted);
+      }
+
+      /* Floating WhatsApp */
+      .whatsapp {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        background: #25d366;
+        padding: 12px;
+        border-radius: 999px;
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .services {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .projects {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        form {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 520px) {
+        nav ul {
+          display: none;
+        }
+        .container {
+          padding: 16px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+        .services {
+          grid-template-columns: 1fr;
+        }
+        .projects {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* subtle animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(6px);
+        animation: fadeIn 900ms ease forwards;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="brand">
+          <div class="logo">Dr</div>
+          <div>
+            <div style="font-weight: 800">Drilsol Ltd</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Ground Water Experts — Machakos, Kenya
+            </div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li>About</li>
+            <li>Services</li>
+            <li>Projects</li>
+            <li>Resources</li>
+            <li><a class="cta-primary" href="#quote">Get Quote</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-card fade-in">
+          <h1>Reliable borehole drilling & solar pumping solutions</h1>
+          <p class="lead">
+            Designing and implementing sustainable water systems across Kenya —
+            from site surveys and drilling to pump installation & maintenance.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn cta-primary" href="#quote"
+              >Request Free Site Survey</a
+            >
+            <a class="btn btn-outline" href="#projects">View Projects</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="num">+120</div>
+              <div class="label">Wells Completed</div>
+            </div>
+            <div class="stat">
+              <div class="num">10+</div>
+              <div class="label">Years Experience</div>
+            </div>
+            <div class="stat">
+              <div class="num">Solar</div>
+              <div class="label">Pump Specialists</div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="display: flex; flex-direction: column; gap: 12px">
+          <div class="card">
+            <div style="font-weight: 800">Quick Services</div>
+            <div class="services" style="margin-top: 12px">
+              <div class="card service-card">
+                <div class="service-icon">💧</div>
+                <div style="font-weight: 700">Borehole Drilling</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Rotary & percussion drilling, site surveys.
+                </div>
+              </div>
+              <div class="card service-card">
+                <div class="service-icon">🌞</div>
+                <div style="font-weight: 700">Solar Pumps</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Solar-powered systems for remote locations.
+                </div>
+              </div>
+              <div class="card service-card">
+                <div class="service-icon">⚙️</div>
+                <div style="font-weight: 700">Rehabilitation</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Cleaning, reaming & chemical treatments.
+                </div>
+              </div>
+              <div class="card service-card">
+                <div class="service-icon">🚰</div>
+                <div style="font-weight: 700">Irrigation</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Design & implementation for farms.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="font-weight: 800">Why choose Drilsol</div>
+            <ul style="color: var(--muted); margin-top: 8px">
+              <li>Local experts with proven track record</li>
+              <li>Turnkey solutions — from survey to commissioning</li>
+              <li>Competitive, transparent pricing</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h2 style="margin: 0 0 12px">Featured Projects</h2>
+        <div class="projects fade-in">
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project photo"
+            />
+            <div class="meta">
+              <div style="font-weight: 800">Makueni Irrigation Borehole</div>
+              <div
+                style="color: var(--muted); font-size: 13px; margin-top: 6px"
+              >
+                Challenge: Low yield. Solution: Reaming + Solar pump. Outcome:
+                +40% yield.
+              </div>
+            </div>
+          </article>
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1526403224740-6f7f2b72f87b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project photo"
+            />
+            <div class="meta">
+              <div style="font-weight: 800">
+                Kajiado Community Water Project
+              </div>
+              <div
+                style="color: var(--muted); font-size: 13px; margin-top: 6px"
+              >
+                Turnkey solar pump installation + tank & distribution.
+              </div>
+            </div>
+          </article>
+          <article class="project">
+            <img
+              src="https://images.unsplash.com/photo-1581092333058-3a5a6d2a39d6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project photo"
+            />
+            <div class="meta">
+              <div style="font-weight: 800">
+                Borehole Rehabilitation — Kitui
+              </div>
+              <div
+                style="color: var(--muted); font-size: 13px; margin-top: 6px"
+              >
+                Mechanical & chemical rehabilitation restored flow to baseline.
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <div class="benefit fade-in">
+          <div style="font-weight: 800">Sustainable Solar Solutions</div>
+          <p style="color: var(--muted)">
+            Reduce running costs and ensure long-term reliability in off-grid
+            areas.
+          </p>
+        </div>
+        <div class="benefit fade-in">
+          <div style="font-weight: 800">Expert Site Surveys</div>
+          <p style="color: var(--muted)">
+            Hydrogeological assessments and EIA studies to guarantee success
+            rates.
+          </p>
+        </div>
+        <div class="benefit fade-in">
+          <div style="font-weight: 800">Maintenance & Aftercare</div>
+          <p style="color: var(--muted)">
+            Planned maintenance, warranty options and emergency repairs.
+          </p>
+        </div>
+      </section>
+
+      <section id="quote" class="quote">
+        <h3 style="margin-top: 0">Request a Quote / Book a Site Survey</h3>
+        <form>
+          <input type="text" placeholder="Full name" />
+          <input type="text" placeholder="Phone / WhatsApp" />
+          <select>
+            <option>Service required</option>
+            <option>Borehole Drilling</option>
+            <option>Solar Pump</option>
+            <option>Rehabilitation</option>
+          </select>
+          <input type="text" placeholder="Location (town / county)" />
+          <textarea
+            placeholder="Brief project description (optional)"
+          ></textarea>
+          <button
+            style="
+              grid-column: 1 / -1;
+              padding: 12px;
+              border-radius: 10px;
+              background: var(--accent);
+              border: none;
+              color: white;
+              font-weight: 800;
+            "
+          >
+            Request Survey
+          </button>
+        </form>
+      </section>
+
+      <footer>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <div style="font-weight: 800">Drilsol Ltd</div>
+            <div style="color: var(--muted); font-size: 13px">
+              Asante House, Opp. Susu Center, Machakos Town — +254 713 875127 —
+              info@drilsol.com
+            </div>
+          </div>
+          <div style="text-align: right; color: var(--muted); font-size: 13px">
+            © Drilsol Ltd — Demo mockup
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Floating WhatsApp action (link to WhatsApp chat) -->
+    <a
+      class="whatsapp"
+      href="https://wa.me/254713875127?text=Hello%20Drilsol%2C%20I%27d%20like%20a%20site%20survey"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20.52 3.48a11.94 11.94 0 0 0-17 0 11.94 11.94 0 0 0 0 17l-1.28 4.72 4.78-1.26A11.94 11.94 0 0 0 20.52 3.48z"
+          fill="#fff"
+          opacity=".05"
+        />
+        <path
+          d="M17.472 14.357c-.297-.149-1.754-.867-2.026-.967-.272-.099-.47-.148-.67.148-.196.297-.768.967-.942 1.165-.174.198-.347.223-.644.074-.297-.148-1.255-.463-2.39-1.476-.885-.789-1.482-1.761-1.657-2.06-.174-.297-.019-.458.13-.606.134-.133.297-.347.446-.52.15-.174.199-.298.298-.496.099-.198.05-.372-.025-.52-.074-.148-.67-1.611-.917-2.207-.242-.58-.488-.503-.67-.513l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.064 2.876 1.212 3.076c.148.198 2.096 3.2 5.076 4.487 3.278 1.45 3.278 0.966 3.872.906.094-.1 1.754-.713 2.006-1.406.248-.693.248-1.287.174-1.406-.074-.12-.272-.198-.57-.347z"
+          fill="#fff"
+        />
+      </svg>
+    </a>
+
+    <script>
+      // small enhancement: fade-in sequence
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".fade-in").forEach((el, i) => {
+          el.style.animationDelay = i * 120 + "ms";
+        });
+      });
+    </script>
+  </body>
+</html>
