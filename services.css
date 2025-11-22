@@ -145,7 +145,7 @@
 
          /* Header Styles */
       header {
-        background-color: rgb(59, 185, 235);
+        background-color: black;
         box-shadow: var(--shadow);
         position: fixed;
         width: 100%;
@@ -197,7 +197,7 @@
       }
 
       nav ul li a {
-        color: black;
+        color: white;
         font-weight: 500;
         padding: 0.5rem 0;
         position: relative;
@@ -250,49 +250,103 @@
         cursor: pointer;
       }
 
-      /* Page Header */
-      .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 12rem 0 6rem;
-        margin-top: 80px;
-        text-align: center;
-      }
+/* Page Header */
+.page-header {
+  position: relative;
+  margin-top: 80px;
+  padding: 12rem 0 8rem;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 21, 36, 0.55), rgba(0, 21, 36, 0.85)),
+              url("https://drilsol.com/wp-content/uploads/2022/07/Drilsol-No-More-Water-Scarcity.jpg") center/cover no-repeat;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  height: 70vh;
+}
 
-      .page-header h1 {
-        color: var(--white);
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
+/* Header revealed */
+.page-header.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-      .page-header p {
-        font-size: 1.2rem;
-        max-width: 700px;
-        margin: 0 auto;
-      }
+/* Title */
+.header-title {
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color:var(--accent-blue);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
 
-      .breadcrumb {
-        display: flex;
-        justify-content: center;
-        margin-top: 1.5rem;
-      }
+/* Subtitle */
+.header-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 700px;
+  margin: 0 auto 1.8rem;
+  color: #d4e0ea;
+  line-height: 1.8;
+}
 
-      .breadcrumb a {
-        color: var(--white);
-        margin: 0 0.5rem;
-      }
+/* Breadcrumb */
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+.breadcrumb a {
+  color: #ffffff;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.breadcrumb a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.breadcrumb span {
+  color: rgba(255, 255, 255, 0.6);
+}
+.breadcrumb .active {
+  color: var(--accent-blue);
+  font-weight: 600;
+  opacity: 1;
+}
 
-      .breadcrumb a:hover {
-        color: var(--solar-yellow);
-      }
+/* Subtle overlay animation */
+.page-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
+  animation: glowMove 8s infinite alternate ease-in-out;
+}
 
-      .breadcrumb span {
-        color: #ccc;
-        margin: 0 0.5rem;
-      }
+/* Keyframes */
+@keyframes glowMove {
+  from { opacity: 0.1; transform: translateY(0px); }
+  to   { opacity: 0.2; transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 8rem 1rem 6rem;
+  }
+  .header-title { font-size: 2.4rem; }
+  .header-subtitle { font-size: 1rem; }
+  .breadcrumb { font-size: 0.85rem; flex-wrap: wrap; }
+}
+
+
 
       /* Services Overview */
       .services-overview {

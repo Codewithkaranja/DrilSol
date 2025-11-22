@@ -1,62 +1,100 @@
- // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mainNav = document.getElementById("mainNav");
+// ========= Mobile Menu =========
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mainNav = document.getElementById("mainNav");
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mainNav.classList.toggle("active");
-      });
+mobileMenuBtn.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("active");
+  mobileMenuBtn.classList.toggle("open", isOpen);
+});
 
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll("nav a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mainNav.classList.remove("active");
-        });
-      });
+// Close menu when clicking a link
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("active");
+    mobileMenuBtn.classList.remove("open");
+  });
+});
 
-      // FAQ Accordion
-      const faqItems = document.querySelectorAll(".faq-item");
+// ========= Smooth Scrolling =========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+    e.preventDefault();
+    document.querySelector(targetId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+});
 
-      faqItems.forEach((item) => {
-        const question = item.querySelector(".faq-question");
+// ========= Sticky Header Background =========
+const header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 100);
+});
 
-        question.addEventListener("click", () => {
-          // Close all other items
-          faqItems.forEach((otherItem) => {
-            if (otherItem !== item) {
-              otherItem.classList.remove("active");
-            }
-          });
+// ========= FAQ Accordion =========
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.querySelector(".faq-question").addEventListener("click", () => {
+    document.querySelectorAll(".faq-item").forEach(other => {
+      if (other !== item) other.classList.remove("active");
+    });
+    item.classList.toggle("active");
+  });
+});
 
-          // Toggle current item
-          item.classList.toggle("active");
-        });
-      });
+// ========= Scroll Reveal (Intersection Observer) =========
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  },
+  { threshold: 0.2 }
+);
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+document.querySelectorAll(".reveal, .page-header").forEach(el => observer.observe(el));
 
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
+// ========= Parallax Background (Smooth & Optimized) =========
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const headerBg = document.querySelector(".page-header");
+      if (headerBg) {
+        headerBg.style.backgroundPositionY = window.scrollY * 0.3 + "px";
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+// ===== Scroll Reveal + Parallax =====
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".page-header");
+  const revealElements = document.querySelectorAll(".reveal");
 
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 100,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
-      // Header background on scroll
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        if (window.scrollY > 100) {
-          header.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
-        } else {
-          header.style.boxShadow = "none";
+  // Intersection Observer for reveal
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add("active");
         }
       });
+    }, { threshold: 0.3 }
+  );
+
+  // Observe header + other sections
+  if(header) observer.observe(header);
+  revealElements.forEach(el => observer.observe(el));
+
+  // Parallax effect for header
+  window.addEventListener("scroll", () => {
+    if(header) {
+      header.style.backgroundPositionY = window.scrollY * 0.4 + "px";
+    }
+  });
+});
+

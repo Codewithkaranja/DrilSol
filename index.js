@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Typewriter Effect =====
   const typewriterElement = document.getElementById("typewriter");
-  const words = ["DrillSol (EA)", "Borehole Drilling", "Pump Installation", "Irrigation Systems", "Solar Water Systems"];
+  const words = ["DrilSol (EA)", "Borehole Drilling", "Pump Installation", "Irrigation Systems", "Solar Water Systems"];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
