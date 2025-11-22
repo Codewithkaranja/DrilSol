@@ -139,7 +139,7 @@
       }
 
       .highlight {
-        color: var(--solar-yellow);
+        color: var(--primary-blue);
         font-weight: 700;
       }
 
@@ -252,7 +252,7 @@
 
        /* ================== HERO SECTION ================== */
 .hero {
-  height: 100vh;
+  height: 90vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -321,15 +321,15 @@
 }
 
 .hero-content h1 .highlight {
-  color: orange;
+  color: var(--primary-blue);
 }
 
 .typewriter-text {
   display: block;
   font-size: 2rem;
   font-weight: 600;
-  border-right: 3px solid orange;
-  color: orange;
+  border-right: 3px solid var(--primary-blue);
+  color: var(--solar-yellow);
   margin-bottom: 1rem;
   white-space: nowrap;
   overflow: hidden;
@@ -358,7 +358,7 @@
 }
 
 .btn {
-  background-color: orange;
+  background-color: var(--primary-blue);
   color: #fff;
 }
 
@@ -385,7 +385,7 @@
   transform: translateX(-50%);
   font-size: 1.8rem;
   cursor: pointer;
-  color: orange;
+  color: var(--solar-yellow);
   animation: bounce 2s infinite;
   z-index: 5;
 }
@@ -411,9 +411,10 @@
 
       /* Services Overview */
       .services-overview {
-        background-color: black;
+        background-color: var(--light-gray);
+        color: rgba(255, 255, 255, 0.801);
       }
-
+     
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -422,7 +423,7 @@
       }
 
       .service-card {
-        background-color: var(--white);
+        background-color: black;
         border-radius: 8px;
         padding: 2rem;
         text-align: center;
@@ -443,19 +444,82 @@
       .service-card h3 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
+        color: var(--solar-yellow);
       }
 
       .text-center h2{
         color: var(--accent-blue);
       }
       .text-center{
-        color: var(--white);
+        color: black;
       }
+
+
+/* Clients Section */
+.clients-section {
+  background-color: black;
+  text-align: center;
+}
+
+.clients-section h2 {
+  font-size: 2.2rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+.clients-section p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.836);
+  margin-bottom: 2rem;
+}
+
+/* Swiper Styling */
+.clients-swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.client-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 120px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.client-card img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  
+  transition: var(--transition);
+}
+
+.client-card:hover {
+  transform: translateY(-8px);
+}
+
+.client-card:hover img {
+  filter: grayscale(0);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .client-card {
+    height: 100px;
+    padding: 1rem;
+  }
+}
 
      /* ================== Projects Section ================== */
 #projects {
   padding: 6rem 0;
   background-color: #fdfdfd;
+  
 }
 
 #projects .text-center h2 {
@@ -466,7 +530,7 @@
 
 #projects .text-center p {
   font-size: 1.1rem;
-  color: #555;
+  color: #0c0b0b;
 }
 
 /* Projects Grid */
@@ -475,16 +539,18 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
   margin-top: 3rem;
+  
 }
 
 /* Individual Project Card */
 .project-card {
   position: relative;
-  background-color: var(--accent-blue);
+  background-color: black;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
 }
 
 .project-card:hover {
@@ -532,6 +598,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+ 
 }
 
 .project-meta {
@@ -543,7 +610,7 @@
 }
 
 .project-meta i {
-  color: #ff6b6b;
+  color: blue;
   margin-right: 4px;
 }
 
@@ -559,13 +626,13 @@
 .project-content h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: #1a1a1a;
+  color: var(--solar-yellow);
   transition: color 0.3s ease;
 }
 
 .project-content p {
   font-size: 0.95rem;
-  color: #555;
+   color: rgba(255, 255, 255, 0.726);
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
@@ -575,7 +642,7 @@
   display: inline-block;
   padding: 10px 25px;
   border: 1px solid #333;
-  color: #333;
+   color: white;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -638,7 +705,7 @@
       }
 
       .solar-text h2:after {
-        background-color: var(--solar-yellow);
+        background-color: var(--primary-blue);
       }
 
       .solar-stats {
@@ -655,7 +722,7 @@
       .stat-value {
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--solar-yellow);
+        color: var(--primary-blue);
         display: block;
       }
 
@@ -675,17 +742,32 @@
       }
 
       /* Why Choose Us */
+      .section-padding1{
+        background-color: black;
+      }
       .features-grid {
+        
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
 
+      .text-center{
+        color: white;
+      }
+
+      .feature-item h3{
+        color: var(--solar-yellow);
+      }
+
       .feature-item {
         text-align: center;
         padding: 2rem 1rem;
+        color: rgba(255, 255, 255, 0.726);
       }
+
+
 
       .feature-icon {
         font-size: 2.5rem;
@@ -702,12 +784,13 @@
       }
 
       .cta-section h2 {
-        color: orange;
+        color: var(--solar-yellow);
         margin-bottom: 1.5rem;
       }
 
       .cta-section h2:after {
         display: none;
+        
       }
 
       .cta-section p {

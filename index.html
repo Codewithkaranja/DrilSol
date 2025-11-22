@@ -8,6 +8,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -124,7 +130,7 @@
     <section class="section-padding services-overview" id="services">
       <div class="container">
         <div class="text-center">
-          <h2>Our Professional Services</h2>
+          <h2>Our Services</h2>
           <p>
             Comprehensive water solutions from survey to installation and
             maintenance
@@ -183,6 +189,62 @@
       </div>
     </section>
 
+    <!-- Clients Section -->
+    <section class="clients-section section-padding">
+      <div class="container">
+        <div class="text-center">
+          <h2>Our Trusted Clients</h2>
+          <p>Proudly serving leading organizations across Kenya</p>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="swiper clients-swiper">
+          <div class="swiper-wrapper">
+            <!-- Client Logo Items -->
+            <div class="swiper-slide client-card">
+              <img src="KENHA.png" alt="Client 1" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="safaricom.png" alt="Client 2" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="segal family.png" alt="Client 3" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="redcrosskenya.jpg" alt="Client 4" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="kmtc logo.png" alt="Client 5" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="jitegemee.png" alt="Client 6" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="goshen.png" alt="Client 7" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="elma.png" alt="Client 8" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="meda.png" alt="Client 9" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="Court of Arms.png" alt="Client 10" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="Terre des hommes.png" alt="Client 11" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="kituicounty.jpg" alt="Client 12" />
+            </div>
+            <div class="swiper-slide client-card">
+              <img src="makueni.jpg" alt="Client 13" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="section-padding" id="projects">
       <div class="container">
@@ -230,7 +292,7 @@
                 Borehole rehabilitation and tank installation for a boarding
                 school.
               </p>
-              <a href="#" class="btn btn-outline">View Project</a>
+              <a href="projects.html" class="btn btn-outline">View Project</a>
             </div>
           </div>
 
@@ -253,16 +315,33 @@
               <a href="projects.html" class="btn btn-outline">View Project</a>
             </div>
           </div>
+          <div class="project-card">
+            <div class="project-img" style="background-color: #ff9800">
+              <img
+                src="https://drilsol.com/wp-content/uploads/2022/07/Drisol-Slide-Five.png"
+                alt="water supply"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span><i class="fas fa-map-marker-alt"></i> Kitui</span>
+                <span class="project-tag">commercial</span>
+              </div>
+              <h3>Solar Pump System</h3>
+              <p>Complete water supply system for a 20-acre farm.</p>
+              <a href="projects.html" class="btn btn-outline">View Project</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Solar Highlight -->
+    <!-- Solar Highlight
     <section class="section-padding solar-highlight" id="solar">
       <div class="container">
         <div class="solar-content">
           <div class="solar-text">
-            <h2>Solar Pump Systems — Powering Water with the Sun</h2>
+            <h2>Solar Pump Systems</h2>
             <p>
               Save up to 60% on water pumping costs with our efficient
               solar-powered systems. No electricity connection needed, no fuel
@@ -301,12 +380,13 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Why Choose Us -->
-    <section class="section-padding" id="about">
+    <section class="section-padding1" id="about">
       <div class="container">
         <div class="text-center">
+          <br />
           <h2>Why Choose Drilsol?</h2>
           <p>
             We deliver reliable water solutions with expertise and commitment
@@ -468,6 +548,8 @@
       </a>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
