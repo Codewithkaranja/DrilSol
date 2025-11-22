@@ -1,93 +1,125 @@
- // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mainNav = document.getElementById("mainNav");
+// ------- MOBILE MENU TOGGLE -------
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mainNav = document.getElementById("mainNav");
+const navLinks = document.querySelectorAll("nav a");
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mainNav.classList.toggle("active");
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mainNav.classList.toggle("active");
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("active");
+    });
+  });
+}
+
+// ------- PROJECT FILTERING -------
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filterValue = button.dataset.filter;
+
+    projectCards.forEach(card => {
+      card.style.display =
+        filterValue === "all" || card.dataset.category.includes(filterValue)
+          ? "block"
+          : "none";
+    });
+  });
+});
+
+// ------- IMAGE MODAL -------
+const modal = document.getElementById("imageModal");
+const modalImage = document.querySelector(".modal-image");
+const closeModal = document.querySelector(".close-modal");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+if (modal && modalImage && closeModal) {
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => {
+      modal.style.display = "flex";
+      const imgSrc = item.querySelector("img")?.src;
+      if (imgSrc) modalImage.src = imgSrc;
+    });
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+}
+
+// ------- SMOOTH SCROLLING --------
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", e => {
+    e.preventDefault();
+
+    const targetId = anchor.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: "smooth"
       });
+    }
+  });
+});
 
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll("nav a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mainNav.classList.remove("active");
-        });
-      });
+// ------- HEADER SCROLL EFFECT ------
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  if (!header) return;
 
-      // Project Filtering
-      const filterButtons = document.querySelectorAll(".filter-btn");
-      const projectCards = document.querySelectorAll(".project-card");
+  header.classList.toggle("scrolled", window.scrollY > 100);
+});
 
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          // Remove active class from all buttons
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          // Add active class to clicked button
-          button.classList.add("active");
+// ------- COUNT-UP STATS ANIMATION -------
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-value-large");
+  const speed = 200;
 
-          const filterValue = button.getAttribute("data-filter");
+  const animateCount = counter => {
+    const target = +counter.dataset.target;
+    const count = +counter.innerText;
 
-          projectCards.forEach((card) => {
-            if (
-              filterValue === "all" ||
-              card.getAttribute("data-category").includes(filterValue)
-            ) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
-      });
+    const increment = Math.ceil(target / speed);
 
-      // Image Modal
-      const modal = document.getElementById("imageModal");
-      const modalImage = document.querySelector(".modal-image");
-      const closeModal = document.querySelector(".close-modal");
-      const galleryItems = document.querySelectorAll(".gallery-item");
+    if (count < target) {
+      counter.innerText = count + increment;
+      setTimeout(() => animateCount(counter), 30);
+    } else {
+      counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+    }
+  };
 
-      galleryItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          modal.style.display = "block";
-          // In a real implementation, you would set the actual image source
-          // modalImage.src = item.querySelector('img').src;
-        });
-      });
-
-      closeModal.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
-
-      window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.style.display = "none";
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
         }
       });
+    },
+    { threshold: 0.5 }
+  );
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 100,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
-      // Header background on scroll
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        if (window.scrollY > 100) {
-          header.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
-        } else {
-          header.style.boxShadow = "none";
-        }
-      });
+  counters.forEach(counter => {
+    const cleanNumber = counter.innerText.replace(/[+%]/g, "");
+    counter.dataset.target = cleanNumber;
+    counter.innerText = "0";
+    observer.observe(counter);
+  });
+});
