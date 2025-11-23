@@ -658,54 +658,67 @@
   }
 }
 
+.applications-section {
+  padding: 5rem 0;
+  background-color: #050505;
+}
 
-      /* Applications Section */
-      .applications-section {
-        padding: 5rem 0;
-        background-color: rgba(255, 255, 255, 0.322);
-      }
-      .applications-section h2{
-        color: var(--solar-yellow);
-      }
+.section-title {
+  color: var(--solar-yellow);
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
 
-      .applications-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-        
-      }
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: auto;
+}
 
-      .application-card {
-         
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-       
-      }
+.mySwiper {
+  margin-top: 3rem;
+  padding-bottom: 4rem;
+}
 
-      .application-card:hover {
-        transform: translateY(-10px);
-      }
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  width: 320px;
+}
 
-      .application-image {
-        height: 200px;
-        background-color: var(--accent-blue);
-        background-size: cover;
-        background-position: center;
-      }
+.swiper-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
-      .application-content {
-        padding: 1.5rem;
-        background-color: black;
-        color: #ccc;
-      }
+.application-content {
+  padding: 1.5rem;
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+}
 
-      .application-content h3 {
-        margin-bottom: 1rem;
-        color: var(--solar-yellow);
-      }
+.application-content h3 {
+  color: var(--solar-yellow);
+  margin-bottom: 0.6rem;
+}
+
+.application-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.swiper-pagination-bullet {
+  background: var(--solar-yellow) !important;
+}
+
 
       /* Systems Section */
       .systems-section {

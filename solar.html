@@ -8,6 +8,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="solar.css" />
   </head>
   <body>
@@ -280,79 +286,66 @@
       </div>
     </section>
 
-    <!-- Applications Section -->
     <section class="section-padding applications-section">
-      <div class="container">
-        <div class="text-center">
-          <h2>Solar Pump Applications</h2>
-          <p>Versatile solutions for various water needs</p>
-        </div>
+      <div class="container text-center">
+        <h2 class="section-title">Solar Pump Applications</h2>
+        <p class="section-subtitle">Smart water solutions for every need</p>
+      </div>
 
-        <div class="applications-grid">
-          <div class="application-card">
-            <div class="application-image" style="background-color: #8bc34a">
-              <img
-                src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Borehole-Rehabilitation.png"
-                alt="agricultural"
-              />
-            </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide application-card">
+            <img
+              src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Borehole-Rehabilitation.png"
+              alt="Agriculture"
+            />
             <div class="application-content">
               <h3>Agricultural Irrigation</h3>
               <p>
-                Reliable water for crops, orchards, and greenhouses. Perfect for
-                drip and sprinkler systems.
+                Reliable water for farms and greenhouses using drip and
+                sprinkler systems.
               </p>
             </div>
           </div>
 
-          <div class="application-card">
-            <div class="application-image" style="background-color: #4a6572">
-              <img
-                src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Installation-Of-Water-Tanks-and-Stands.png"
-                alt="livestock"
-              />
-            </div>
+          <div class="swiper-slide application-card">
+            <img
+              src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Installation-Of-Water-Tanks-and-Stands.png"
+              alt="Livestock"
+            />
             <div class="application-content">
               <h3>Livestock Watering</h3>
               <p>
-                Consistent water supply for cattle, poultry, and other livestock
-                in remote grazing areas.
+                Consistent water for cattle, poultry and remote grazing areas.
               </p>
             </div>
           </div>
 
-          <div class="application-card">
-            <div class="application-image" style="background-color: #ff9800">
-              <img
-                src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Water-Suppky-Irrigation-Systems.png"
-                alt="water supply"
-              />
-            </div>
+          <div class="swiper-slide application-card">
+            <img
+              src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Water-Suppky-Irrigation-Systems.png"
+              alt="Domestic Use"
+            />
             <div class="application-content">
               <h3>Domestic Water Supply</h3>
-              <p>
-                Clean water for homes, schools, and communities without grid
-                electricity access.
-              </p>
+              <p>Clean water for homes, schools and off-grid communities.</p>
             </div>
           </div>
 
-          <div class="application-card">
-            <div class="application-image" style="background-color: #2196f3">
-              <img
-                src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Solar-System.jpg"
-                alt="commercial use"
-              />
-            </div>
+          <div class="swiper-slide application-card">
+            <img
+              src="https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Solar-System.jpg"
+              alt="Commercial Use"
+            />
             <div class="application-content">
               <h3>Commercial Use</h3>
               <p>
-                Water for hotels, resorts, factories, and other businesses
-                looking to reduce operational costs.
+                Efficient water solutions for hotels, factories and businesses.
               </p>
             </div>
           </div>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
@@ -802,6 +795,8 @@
         <i class="fab fa-whatsapp"></i>
       </a>
     </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="solar.js"></script>
   </body>
