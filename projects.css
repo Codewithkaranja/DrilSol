@@ -401,10 +401,12 @@
         color: var(--white);
         border-color: var(--primary-blue);
       } /* Swiper Styling */
-/* Clients Section */
+
+/* Clients / Project Gallery Section */
 .clients-section {
-  background-color: black;
+  background-color: #000;
   text-align: center;
+  padding: 4rem 0;
 }
 
 .clients-section h2 {
@@ -415,63 +417,54 @@
 
 .clients-section p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.836);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
 }
 
 /* Swiper Styling */
 .clients-swiper {
   width: 100%;
-  padding: 2rem 0;
+  padding-bottom: 3rem;
 }
 
 .client-card {
-  /*display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  background: #111;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--white);
-  border-radius: 8px;
-  padding: 1.5rem;
-  height: 120px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;*/
-  border-radius: 8px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        background-color: black;
 }
 
 .client-card img {
- /* max-width: 100%;
-  max-height: 70px;
-  object-fit: contain;
-  
-  transition: var(--transition);*/
+  width: 100%;
   height: 250px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  filter: brightness(80%);
+}
+
+.client-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(100%);
 }
 
 .client-card:hover {
   transform: translateY(-10px);
 }
 
-.client-card:hover img {
-  filter: grayscale(0);
-}
-
-/* Responsive Fixes */
+/* Mobile Fixes */
 @media (max-width: 768px) {
-  .client-card {
-    height: 100px;
-    padding: 1rem;
+  .client-card img {
+    height: 180px;
   }
 }
 
 
-      /* Projects Grid */
+      /* Projects Grid 
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -577,7 +570,7 @@
       .stat-label {
         font-size: 0.8rem;
         color:  black;
-      }
+      }*/
 
       /* Case Studies */
       .case-studies {
