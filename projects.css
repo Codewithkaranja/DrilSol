@@ -401,9 +401,73 @@
         color: var(--white);
         border-color: var(--primary-blue);
       } /* Swiper Styling */
+/* Clients Section */
+.clients-section {
+  background-color: black;
+  text-align: center;
+}
+
+.clients-section h2 {
+  font-size: 2.2rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+.clients-section p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.836);
+  margin-bottom: 2rem;
+}
+
+/* Swiper Styling */
 .clients-swiper {
   width: 100%;
   padding: 2rem 0;
+}
+
+.client-card {
+  /*display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 120px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;*/
+  border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        background-color: black;
+}
+
+.client-card img {
+ /* max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  
+  transition: var(--transition);*/
+  height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+}
+
+.client-card:hover {
+  transform: translateY(-10px);
+}
+
+.client-card:hover img {
+  filter: grayscale(0);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .client-card {
+    height: 100px;
+    padding: 1rem;
+  }
 }
 
 
