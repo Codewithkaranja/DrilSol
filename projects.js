@@ -123,3 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(counter);
   });
 });
+
+// Swiper Client Logo Slider
+const clientSwiper = new Swiper(".clients-swiper", {
+  slidesPerView: 5,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 1000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    1024: { slidesPerView: 4 },
+    768: { slidesPerView: 3 },
+    480: { slidesPerView: 2 },
+    0: { slidesPerView: 1 },
+  },
+});

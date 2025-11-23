@@ -400,7 +400,12 @@
         background-color: var(--primary-blue);
         color: var(--white);
         border-color: var(--primary-blue);
-      }
+      } /* Swiper Styling */
+.clients-swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
 
       /* Projects Grid */
       .projects-grid {

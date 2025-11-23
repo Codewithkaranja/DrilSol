@@ -145,7 +145,7 @@
 
          /* Header Styles */
       header {
-        background-color: black;
+       background-color: rgb(59, 185, 235);
         box-shadow: var(--shadow);
         position: fixed;
         width: 100%;
@@ -172,13 +172,6 @@
   margin-right: 12px;
 }
 
-.logo-text {
-  color: var(--white);
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: 1px;
-}
 
 
       .logo-tagline {
@@ -197,7 +190,7 @@
       }
 
       nav ul li a {
-        color: white;
+        color:black;
         font-weight: 500;
         padding: 0.5rem 0;
         position: relative;
@@ -721,6 +714,7 @@
           transition: var(--transition);
           box-shadow: var(--shadow);
           padding: 2rem;
+          
         }
 
         nav.active {
@@ -733,6 +727,7 @@
 
         nav ul li {
           margin: 0 0 1.5rem 0;
+          
         }
 
         .nav-cta {

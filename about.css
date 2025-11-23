@@ -1041,14 +1041,14 @@
           flex-direction: column;
           gap: 1rem;
         }
-         .logo img {
+        /* .logo img {
     width: 70px;
     height: 70px;
   }
 
   .logo {
     font-size: 1.5rem;
-  }
+  }*/
 
         .page-header {
           padding: 8rem 0 4rem;
