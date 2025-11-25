@@ -124,13 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Swiper Client Logo Slider
+// Swiper Client Project Gallery Slider
 const clientSwiper = new Swiper(".clients-swiper", {
-  slidesPerView: 5,
-  spaceBetween: 30,
+  slidesPerView: 4,
+  spaceBetween: 20,
   loop: true,
+  centeredSlides: true,
+  grabCursor: true,
   autoplay: {
-    delay: 1000,
+    delay: 1800,
     disableOnInteraction: false,
   },
   breakpoints: {
