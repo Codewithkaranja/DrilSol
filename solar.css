@@ -423,56 +423,64 @@
 
       /* Benefits Section */
       .benefits-section {
-        background-color: var(--light-gray);
+        background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+        background-size: cover;
+        background-position: center;
       }
       .benefits-section h2{
         color: var(--solar-yellow);
       }
 
-      .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
+      /* Remove grid layout, handled by Swiper */
+.benefits-grid {
+  display: none;
+}
 
-      .benefit-card {
-        background-color: black;
-        border-radius: 8px;
-        padding: 2.5rem 2rem;
-        text-align: center;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-        color: rgba(255, 255, 255, 0.76);
-      }
+/* Swiper Wrapper Styling */
+.benefits-swiper {
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
 
-      .benefit-card:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background-color: var(--solar-yellow);
-      }
+/* Benefit Cards in Carousel */
+.benefit-card {
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
 
-      .benefit-card:hover {
-        transform: translateY(-10px);
-      }
+.benefit-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
 
-      .benefit-icon {
-        font-size: 3rem;
-        color: var(--solar-yellow);
-        margin-bottom: 1.5rem;
-      }
+.benefit-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
 
-      .benefit-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: var(--primary-blue);
-      }
+.benefit-icon {
+  font-size: 3rem;
+  color: var(--solar-yellow);
+  margin-bottom: 1.5rem;
+}
+
+/* Pagination Styling (Optional) */
+.swiper-pagination-bullet {
+  background: var(--solar-yellow);
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
 
       /* How It Works */
       .how-it-works {
@@ -518,7 +526,10 @@
 
      /* Comparison Section */
 .comparison-section {
-  background-color: var(--light-gray);
+  background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+        background-size: cover;
+        background-position: center;
   padding: 4rem 0;
 }
 
@@ -875,7 +886,14 @@ color: var(--solar-yellow);
 
       /* FAQ Section */
       .faq-section {
-        background-color: var(--light-gray);
+         background: linear-gradient(rgba(238, 239, 240, 0.973), rgba(248, 249, 250, 0.788)),
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+       
+      .faq-section h2{
+        color: var(--solar-yellow);
       }
 
       .faq-container {
@@ -1171,3 +1189,28 @@ color: var(--solar-yellow);
           grid-template-columns: 1fr;
         }
       }
+
+            /* Sticky Quote Button */
+.sticky-quote {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background: var(--accent-blue);
+  color:white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(179, 0, 0, 0.4);
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sticky-quote:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--light-gold));
+  color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}

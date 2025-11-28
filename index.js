@@ -123,12 +123,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Swiper Client Logo Slider
 const clientSwiper = new Swiper(".clients-swiper", {
-  slidesPerView: 5,
-  spaceBetween: 30,
   loop: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  spaceBetween: 30,
   autoplay: {
-    delay: 1000,
+    delay: 1500,
     disableOnInteraction: false,
+  },
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 40,      // Rotation angle
+    stretch: 0,      // Space between slides
+    depth: 120,      // Slide depth (3D distance)
+    modifier: 2,     // Overall intensity
+    slideShadows: true, // Shadow for 3D realism
   },
   breakpoints: {
     1024: { slidesPerView: 4 },
@@ -137,4 +146,5 @@ const clientSwiper = new Swiper(".clients-swiper", {
     0: { slidesPerView: 1 },
   },
 });
+
 

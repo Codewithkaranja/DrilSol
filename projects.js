@@ -142,3 +142,35 @@ const clientSwiper = new Swiper(".clients-swiper", {
     0: { slidesPerView: 1 },
   },
 });
+
+const caseSwiper = new Swiper('.case-swiper', {
+  slidesPerView: 1.1,
+  spaceBetween: 30,
+  loop: true, // <-- this makes it endless
+  centeredSlides: true,
+  grabCursor: true,
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 20,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false, // <-- continues autoplay even after interaction
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    768: { slidesPerView: 1.2 },
+    1024: { slidesPerView: 1.5 },
+  },
+});

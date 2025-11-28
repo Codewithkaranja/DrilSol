@@ -471,6 +471,10 @@
   gap: 3rem;
   margin-top: 4rem;
   padding-bottom: 2rem;
+  background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+        background-size: cover;
+        background-position: center;
 }
 
 /* 🔹 Card Layout - Deep Glassmorphism */
@@ -569,6 +573,7 @@
 
 /* 🔹 Stats Section */
 .project-stats {
+ 
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -1085,3 +1090,28 @@
           grid-template-columns: 1fr 1fr;
         }
       }
+
+            /* Sticky Quote Button */
+.sticky-quote {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background: var(--accent-blue);
+  color:white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(179, 0, 0, 0.4);
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sticky-quote:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--light-gold));
+  color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}

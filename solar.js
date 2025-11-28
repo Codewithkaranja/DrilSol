@@ -92,6 +92,7 @@
         });
       });
 
+      //swiper slider
       var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,
@@ -114,3 +115,67 @@
       clickable: true,
     },
   });
+  document.addEventListener("DOMContentLoaded", () => {
+  const stats = document.querySelectorAll(".stat-value");
+
+  const startCount = (el) => {
+    const originalText = el.innerText.trim();
+
+    // Ignore non-numeric values like 24/7
+    if (/^\d+\/\d+$/.test(originalText)) return;
+
+    // Extract number part only
+    const target = parseInt(originalText);
+    if (isNaN(target)) return;
+
+    const isPercent = originalText.includes("%");
+    const isPlus = originalText.includes("+");
+
+    let current = 0;
+    const duration = 2000; // Total time for animation
+    const increment = Math.ceil(target / (duration / 50)); // Smooth step
+
+    const counter = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(counter);
+      }
+      el.innerText =
+        current + (isPercent ? "%" : "") + (isPlus ? "+" : "");
+    }, 50);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startCount(entry.target);
+          observerInstance.unobserve(entry.target); // Prevent repeat animation
+        }
+      });
+    },
+    {
+      threshold: 0.4, // Starts when 40% of element is visible
+    }
+  );
+
+  stats.forEach((stat) => observer.observe(stat));
+});
+
+const benefitSwiper = new Swiper(".benefits-swiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  grabCursor: true,
+  breakpoints: {
+    1024: { slidesPerView: 3 },
+    768: { slidesPerView: 2 },
+    0: { slidesPerView: 1 },
+  },
+});
+

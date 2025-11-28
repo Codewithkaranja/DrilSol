@@ -757,3 +757,28 @@
           grid-template-columns: 1fr;
         }
       }
+
+            /* Sticky Quote Button */
+.sticky-quote {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background: var(--accent-blue);
+  color:white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(179, 0, 0, 0.4);
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sticky-quote:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--light-gold));
+  color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
