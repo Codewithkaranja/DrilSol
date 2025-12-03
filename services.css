@@ -28,6 +28,10 @@
         line-height: 1.6;
         color: var(--slate-gray);
         background-color: var(--white);
+        background: linear-gradient(rgba(238, 239, 240, 0.829), rgba(248, 249, 250, 0.788)),
+    url("WhatsApp Image 2025-11-27 at 20.12.18_d3f0f74b.jpg");
+  background-size: cover;
+  background-position: center;
       }
 
       h1,
@@ -273,8 +277,8 @@
 
 /* Title */
 .header-title {
-  font-size: clamp(2.5rem, 6vw, 3.8rem);
-  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 500;
   color:var(--accent-blue);
   letter-spacing: 1px;
   margin-bottom: 1rem;
@@ -345,7 +349,16 @@
 
       /* Services Overview */
       .services-overview {
-        background-color: var(--light-gray);
+        background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
+    url("WhatsApp Image 2025-11-27 at 20.12.18_d3f0f74b.jpg");
+  background-size: cover;
+  background-position: center;
+      }
+
+      .services-overview h2{
+        color: var(--accent-blue);
+        font-weight: 500;
+        font-size: 2.1rem;
       }
 
       .services-grid {
@@ -380,6 +393,8 @@
       .service-card h3 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
+        color: var(--accent-blue);
+        font-weight: 500;
       }
 
       .service-card p {
@@ -405,6 +420,8 @@
 
       .service-text h2 {
         margin-bottom: 1.5rem;
+        color: var(--accent-blue);
+        font-weight: 500;
       }
 
       .service-features {
@@ -446,7 +463,8 @@
       }
 
       .process-section h2 {
-        color: var(--white);
+        color: var(--solar-yellow);
+        font-weight: 500;
       }
 
       .process-section h2:after {
@@ -480,8 +498,9 @@
       }
 
       .process-step h3 {
-        color: var(--white);
+        color: var(--solar-yellow);
         margin-bottom: 1rem;
+        font-weight: 500;
       }
 
       .process-step p {
@@ -497,8 +516,9 @@
       }
 
       .cta-section h2 {
-        color: var(--white);
+        color: var(--solar-yellow);
         margin-bottom: 1.5rem;
+        font-weight: 500;
       }
 
       .cta-section h2:after {
@@ -514,11 +534,19 @@
         display: flex;
         justify-content: center;
         gap: 1rem;
+        
       }
 
       /* FAQ Section */
       .faq-section {
-        background-color: var(--light-gray);
+        background: linear-gradient(rgba(238, 239, 240, 0.966), rgba(248, 249, 250, 0.788)),
+    url("WhatsApp Image 2025-11-27 at 20.12.18_d3f0f74b.jpg");
+  background-size: cover;
+  background-position: center;
+      }
+      .faq-section h2{
+        color: var(--accent-blue);
+        font-weight: 500;
       }
 
       .faq-container {
