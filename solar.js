@@ -92,29 +92,45 @@
         });
       });
 
-      //swiper slider
-      var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    loop: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 30,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true,
-    },
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+  // Swiper Slider — Endless Loop on All Devices
+// Swiper Slider — Endless Loop without Jump
+var swiper = new Swiper(".mySwiper", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  loop: true,
+  slidesPerView: "auto",
+  loopedSlides: 12, // duplicates enough slides to remove jump
+  coverflowEffect: {
+    rotate: 30,
+    stretch: 0,
+    depth: 200,
+    modifier: 1,
+    slideShadows: true,
+  },
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    320: { slidesPerView: 1 },
+    480: { slidesPerView: 1.2 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+    1400: { slidesPerView: 3 },
+  },
+});
+
+
+  //stats counter
   document.addEventListener("DOMContentLoaded", () => {
   const stats = document.querySelectorAll(".stat-value");
 

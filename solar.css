@@ -429,65 +429,165 @@
         box-shadow: var(--shadow);
       }
 
-      /* Benefits Section */
-      .benefits-section {
-        background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      .benefits-section h2{
-        color: var(--accent-blue);
-      }
+    /* Benefits Section */
+/* Benefits Section */
+.benefits-section {
+  padding: 5rem 0;
+  background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
+    url("WhatsApp Image 2025-11-27 at 20.12.18_d3f0f74b.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: 'Poppins', sans-serif;
+}
 
-      /* Remove grid layout, handled by Swiper */
+/* Section Titles */
+.benefits-section h2 {
+  color: var(--accent-blue);
+  font-size: 2.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.benefits-section p {
+  color: rgba(0,0,0,0.75);
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 3rem;
+}
+
+/* Hide grid fallback */
 .benefits-grid {
   display: none;
 }
 
-/* Swiper Wrapper Styling */
+/* Swiper Wrapper */
 .benefits-swiper {
   margin-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
-/* Benefit Cards in Carousel */
-.benefit-card {
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 14px;
+/* Cards */
+.swiper-slide.benefit-card {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 16px;
   padding: 2.5rem 2rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  width: 320px;
+  position: relative;
+  overflow: hidden;
 }
 
-.benefit-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+/* Hover Effects */
+.swiper-slide.benefit-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.95);
 }
 
-.benefit-card h3 {
-  color: var(--primary-blue);
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
+/* Card Icon */
 .benefit-icon {
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: var(--solar-yellow);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+  transition: transform 0.4s ease, color 0.4s ease;
 }
 
-/* Pagination Styling (Optional) */
+.swiper-slide.benefit-card:hover .benefit-icon {
+  transform: scale(1.15);
+  color: #ffd740;
+}
+
+/* Card Title */
+.swiper-slide.benefit-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.swiper-slide.benefit-card:hover h3 {
+  color: var(--solar-yellow);
+}
+
+/* Card Description */
+.swiper-slide.benefit-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Swiper Pagination */
 .swiper-pagination-bullet {
   background: var(--solar-yellow);
   opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
+  transform: scale(1.2);
 }
+/* Benefit Cards in Carousel */
+.swiper-slide.benefit-card {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.95),
+      rgba(20, 20, 20, 0.95)
+    ); /* darker gradient for better contrast */
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: #ffffff; /* white text for readability */
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.55);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effects */
+.swiper-slide.benefit-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1),
+      rgba(30, 30, 30, 1)
+    );
+}
+
+/* Card Title */
+.swiper-slide.benefit-card h3 {
+  color:var(--primary-blue); /* brighter accent yellow for title */
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Card Description */
+.swiper-slide.benefit-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95); /* almost full white for readability */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Card Icon */
+.swiper-slide.benefit-card .benefit-icon {
+  font-size: 3.2rem;
+  color: var(--solar-yellow);
+  margin-bottom: 1.8rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
 
 
       /* How It Works */
@@ -570,7 +670,7 @@
   color: var(--white);
   padding: 1.5rem 2rem;
   font-weight: 600;
-  text-transform: uppercase;
+ 
   letter-spacing: 0.5px;
 }
 
@@ -678,68 +778,119 @@
   }
 }
 
-/*Solar Pump Applications Section*/
+/* Applications Section */
 .applications-section {
   padding: 5rem 0;
   background-color: #050505;
+  font-family: 'garamond', sans-serif;
 }
 
+/* Section Titles */
 .section-title {
   color: var(--solar-yellow);
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 0.5rem;
-  font-weight: 400;
+  font-weight: 500;
+  
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .section-subtitle {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: auto;
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0.5rem auto 3rem;
+  text-align: center;
+  line-height: 1.5;
 }
 
+/* Swiper Slider */
 .mySwiper {
   margin-top: 3rem;
   padding-bottom: 4rem;
 }
 
+/* Individual Cards */
 .swiper-slide {
   display: flex;
   flex-direction: column;
   background-color: #111;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
   width: 320px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Card Hover Effect */
+.swiper-slide:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Card Images */
 .swiper-slide img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.5s ease;
 }
 
+.swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay on image for premium feel */
+.swiper-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  pointer-events: none;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Card Content */
 .application-content {
-  padding: 1.5rem;
+  padding: 1.8rem 1.5rem 2rem;
   background-color: #000;
   color: #ccc;
   text-align: center;
+  flex: 1;
 }
 
 .application-content h3 {
   color: var(--solar-yellow);
-  margin-bottom: 0.6rem;
-  font-weight: 400;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  font-size: 1.25rem;
 }
 
 .application-content p {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
 }
 
+/* Swiper Pagination */
 .swiper-pagination-bullet {
   background: var(--solar-yellow) !important;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.swiper-pagination-bullet-active {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
 
 
       /* Systems Section */
