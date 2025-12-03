@@ -319,10 +319,16 @@
 /* Header Typography */
 .page-header h1 {
   font-size: 3rem;
-  font-weight: 700;
+  
   margin-bottom: 1rem;
   letter-spacing: 1px;
   color: var(--accent-blue);
+   font-family: "Garamond", "Times New Roman", serif;
+        
+        
+       
+        font-weight: 600;
+        line-height: 1.6;
 }
 
 .page-header p {
@@ -399,9 +405,12 @@
 }
 
 .story-text h2 {
+   font-family: "Garamond", "Times New Roman", serif;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  line-height: 1.2;
   font-size: 2.8rem;
   margin-bottom: 1.5rem;
-  font-weight: 700;
   color: var(--accent-blue);
   position: relative;
 }
