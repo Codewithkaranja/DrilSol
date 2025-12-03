@@ -76,6 +76,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  //swiper slider
+  var swiper = new Swiper(".teamSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  //new swiper why choose us
+  var swiper = new Swiper(".chooseSwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: "auto",
+
+    autoplay: {
+      delay: 2500, // move every 2.5 seconds
+      disableOnInteraction: false,
+    },
+
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 250,
+      modifier: 1,
+      slideShadows: false,
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+      320: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1200: { slidesPerView: 3 },
+    },
+  });
   // -------------------------------
   // Sticky header shadow on scroll
   // -------------------------------
