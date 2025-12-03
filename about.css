@@ -24,7 +24,7 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Jost", sans-serif;
         line-height: 1.6;
         color: var(--slate-gray);
         background-color: var(--white);
@@ -96,8 +96,8 @@
 
       .btn {
         display: inline-block;
-        padding: 12px 28px;
-        border-radius: 4px;
+         padding: 15px 25px;
+        border-radius: 50px;
         font-weight: 600;
         text-align: center;
         cursor: pointer;
@@ -128,7 +128,7 @@
 
       .btn-outline {
         background-color: transparent;
-        color: var(--primary-blue);
+        color: transparent;
         border: 2px solid var(--primary-blue);
       }
 
@@ -876,6 +876,7 @@
         display: flex;
         justify-content: center;
         gap: 1rem;
+       
       }
 
       /* Footer */

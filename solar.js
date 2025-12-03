@@ -163,6 +163,7 @@
   stats.forEach((stat) => observer.observe(stat));
 });
 
+//benefits swiper slider
 const benefitSwiper = new Swiper(".benefits-swiper", {
   slidesPerView: 3,
   spaceBetween: 30,

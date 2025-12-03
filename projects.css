@@ -24,7 +24,7 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Jost", sans-serif;
         line-height: 1.6;
         color: var(--slate-gray);
         background-color: var(--white);
@@ -47,6 +47,7 @@
         font-size: 2rem;
         position: relative;
         padding-bottom: 0.5rem;
+        font-weight: 400;
       }
 
       h2:after {
@@ -286,7 +287,7 @@
 /* Header Typography */
 .projects-header h1 {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: 1px;
   opacity: 0;
@@ -671,6 +672,7 @@
 }
 .case-study h3{
   color:var(--solar-yellow);
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -789,7 +791,7 @@
 
 .stat-label-large {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--accent-blue);
   letter-spacing: 0.5px;
 }
 
@@ -827,6 +829,7 @@
       .cta-section h2 {
         color: var(--solar-yellow);
         margin-bottom: 1.5rem;
+        font-weight: 500;
       }
 
       .cta-section h2:after {

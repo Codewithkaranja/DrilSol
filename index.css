@@ -22,9 +22,10 @@
       html {
         scroll-behavior: smooth;
       }
+ 
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Jost", sans-serif;
         line-height: 1.6;
         color: var(--slate-gray);
         background-color: var(--white);
@@ -227,6 +228,16 @@
         align-items: center;
         
       }
+
+           .nav.scrolled {
+  background-color: transparent;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 5%;
+}
+
+.nav.scrolled .nav-links a {
+  color: var(--dark);
+}
 
       .nav-phone {
         display: flex;

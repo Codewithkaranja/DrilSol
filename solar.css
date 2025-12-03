@@ -24,7 +24,7 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Jost", sans-serif;
         line-height: 1.6;
         color: var(--slate-gray);
         background-color: var(--white);
@@ -41,12 +41,14 @@
 
       h1 {
         font-size: 2.5rem;
+        font-weight: 400;
       }
 
       h2 {
         font-size: 2rem;
         position: relative;
         padding-bottom: 0.5rem;
+        font-weight: 500;
       }
 
       h2:after {
@@ -96,8 +98,8 @@
 
       .btn {
         display: inline-block;
-        padding: 12px 28px;
-        border-radius: 4px;
+        padding: 15px 25px;
+  border-radius: 50px;
         font-weight: 600;
         text-align: center;
         cursor: pointer;
@@ -296,7 +298,7 @@
   color: var(--solar-yellow);
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   animation: fadeInDown 1s ease forwards;
 }
 
@@ -429,7 +431,7 @@
         background-position: center;
       }
       .benefits-section h2{
-        color: var(--solar-yellow);
+        color: var(--accent-blue);
       }
 
       /* Remove grid layout, handled by Swiper */
@@ -535,14 +537,14 @@
 
 .comparison-section h2 {
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 0.5rem;
-  color: var(--solar-yellow);
+  color: var(--accent-blue);
 }
 
 .comparison-section p {
   font-size: 1.1rem;
-  color: var(--slate-gray);
+  color: black;
 }
 
 /* Comparison Table Container */
@@ -568,6 +570,7 @@
 
 .comparison-header h3 {
   margin: 0;
+  color: var(--solar-yellow);
 }
 
 /* Data Rows */
@@ -639,7 +642,7 @@
 
   .feature-name::before {
     content: "Feature: ";
-    font-weight: 700;
+    font-weight: 500;
     color: #444;
     margin-right: 4px;
   }
@@ -669,6 +672,7 @@
   }
 }
 
+/*Solar Pump Applications Section*/
 .applications-section {
   padding: 5rem 0;
   background-color: #050505;
@@ -678,7 +682,7 @@
   color: var(--solar-yellow);
   font-size: 2.4rem;
   margin-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .section-subtitle {
@@ -719,6 +723,7 @@
 .application-content h3 {
   color: var(--solar-yellow);
   margin-bottom: 0.6rem;
+  font-weight: 400;
 }
 
 .application-content p {
@@ -823,11 +828,12 @@ color: var(--solar-yellow);
       }
 
       .savings-section h2 {
-        color: var(--white);
+        color: var(--solar-yellow);
+        font-weight: 400;
       }
 
       .savings-section h2:after {
-        background-color: var(--solar-yellow);
+        background-color: var(--white);
       }
 
       .savings-content {
@@ -876,7 +882,7 @@ color: var(--solar-yellow);
       }
 
       .savings-text h3 {
-        color: var(--white);
+        color: var(--solar-yellow);
         margin-bottom: 1.5rem;
       }
 
@@ -893,7 +899,8 @@ color: var(--solar-yellow);
       }
        
       .faq-section h2{
-        color: var(--solar-yellow);
+        color: var(--accent-blue);
+        font-weight: 400;
       }
 
       .faq-container {
@@ -949,6 +956,7 @@ color: var(--solar-yellow);
       .cta-section h2 {
         color: var(--solar-yellow);
         margin-bottom: 1.5rem;
+        font-weight: 400;
       }
 
       .cta-section h2:after {
