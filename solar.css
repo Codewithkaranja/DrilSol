@@ -34,9 +34,15 @@
       h2,
       h3,
       h4 {
-        color: var(--charcoal-black);
-        margin-bottom: 1rem;
+          font-family: "Garamond", "Times New Roman", serif;
+        
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.3px;
+        font-weight: 500;
         line-height: 1.2;
+        color: var(--charcoal-black);
+       
+        
       }
 
       h1 {
@@ -821,7 +827,7 @@ color: var(--solar-yellow);
       .savings-section {
         background: linear-gradient(
           135deg,
-          var(--primary-blue) 0%,
+          rgba(0, 0, 0, 0.733) 0%,
           var(--accent-blue) 100%
         );
         color: var(--white);
