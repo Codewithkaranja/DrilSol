@@ -271,7 +271,7 @@ header.header-small:not(.header-transparent) .logo-img {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #ffffff;
+  background: var(--accent-blue);
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   list-style: none;
@@ -311,8 +311,8 @@ header.header-small:not(.header-transparent) .logo-img {
 /* Optional: add a small arrow to parent link */
 .has-dropdown > a::after {
   content: "▼";
-  font-size: 0.6em;
-  margin-left: 6px;
+  font-size: 0.9em;
+  margin-left: 20px;
   transition: transform 0.3s ease;
 }
 
@@ -525,17 +525,71 @@ header.header-small:not(.header-transparent) .logo-img {
         margin-top: 5px;
       }
 
-      .service-image {
-        background-color: var(--light-gray);
-        height: 300px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--slate-gray);
-        font-size: 1.2rem;
-        box-shadow: var(--shadow);
-      }
+     .service-image {
+  position: relative;
+  height: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Subtle background fallback */
+  background: black;
+
+  /* Softer, premium shadow */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Optional background image inside */
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: filter 0.4s ease;
+}
+
+/* Gradient overlay */
+.service-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.35)
+  );
+  transition: opacity 0.4s ease;
+  opacity: 0.6;
+}
+
+/* Text style inside */
+.service-image span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+/* Hover Effects */
+.service-image:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.service-image:hover img {
+  filter: brightness(1);
+}
+
+.service-image:hover::after {
+  opacity: 0.2;
+}
 
       /* Process Section */
       .process-section {
