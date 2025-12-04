@@ -260,6 +260,67 @@ header.header-small:not(.header-transparent) .logo-img {
   height: 70px;
 }
 
+/* Parent li with dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+/* Hide dropdown by default */
+.has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  min-width: 220px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show dropdown on hover */
+.has-dropdown:hover .dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown links */
+.dropdown li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.dropdown li a:hover {
+  background: linear-gradient(90deg, #f7d794, #f8a055);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+/* Optional: add a small arrow to parent link */
+.has-dropdown > a::after {
+  content: "▼";
+  font-size: 0.6em;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on hover */
+.has-dropdown:hover > a::after {
+  transform: rotate(-180deg);
+}
+
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -268,6 +329,8 @@ header.header-small:not(.header-transparent) .logo-img {
   color: var(--primary-blue);
   cursor: pointer;
 }
+
+
 
 /* Page Header */
 .page-header {
