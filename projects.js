@@ -1,21 +1,92 @@
 // ------- MOBILE MENU TOGGLE -------
+/* ===============================
+      MOBILE MENU TOGGLE & HEADER EFFECTS
+=============================== */
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const mainNav = document.getElementById("mainNav");
-const navLinks = document.querySelectorAll("nav a");
+const header = document.querySelector("header");
+const pageHeader = document.querySelector(".page-header");
+let lastScrollY = window.scrollY;
 
 if (mobileMenuBtn && mainNav) {
   mobileMenuBtn.addEventListener("click", () => {
+    // CHANGE THIS LINE: Use "active" instead of "mobile-active"
     mainNav.classList.toggle("active");
+    mobileMenuBtn.classList.toggle("open");
+
+    // stagger links animation
+    const links = mainNav.querySelectorAll("a");
+    links.forEach((link, index) => {
+      // CHANGE THIS LINE: Use "active" instead of "mobile-active"
+      link.style.transitionDelay = mainNav.classList.contains("active")
+        ? `${index * 0.1}s`
+        : "0s";
+    });
   });
 
-  navLinks.forEach(link => {
+  // Close menu when a link is clicked
+  mainNav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
+      // CHANGE THIS LINE: Use "active" instead of "mobile-active"
       mainNav.classList.remove("active");
+      mobileMenuBtn.classList.remove("open");
     });
   });
 }
 
-// ------- PROJECT FILTERING -------
+// Header scroll effects - NO CHANGES BELOW HERE
+if (header) {
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    // Shrink header
+    if (currentScroll > 80) {
+      header.classList.add("header-small");
+    } else {
+      header.classList.remove("header-small", "header-transparent");
+    }
+
+    // Scroll direction → transparency
+    if (currentScroll > lastScrollY && currentScroll > 80) {
+      header.classList.add("header-transparent");
+    } else if (currentScroll < lastScrollY) {
+      header.classList.remove("header-transparent");
+    }
+
+    // Sticky shadow
+    header.style.boxShadow = currentScroll > 100
+      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
+      : "none";
+
+    // Parallax effect
+    if (pageHeader) {
+      pageHeader.style.backgroundPositionY = currentScroll * 0.5 + "px";
+    }
+
+    lastScrollY = currentScroll;
+  });
+}
+
+// Fade-in header texts - NO CHANGES BELOW HERE
+const headerTexts = document.querySelectorAll(".animate-text");
+if (headerTexts.length) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  headerTexts.forEach(el => {
+    el.style.animationPlayState = "paused";
+    observer.observe(el);
+  });
+}
+
+
+// ------- PROJECT FILTERING ------- - NO CHANGES BELOW HERE
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
@@ -35,7 +106,7 @@ filterButtons.forEach(button => {
   });
 });
 
-// ------- IMAGE MODAL -------
+// ------- IMAGE MODAL ------- - NO CHANGES BELOW HERE
 const modal = document.getElementById("imageModal");
 const modalImage = document.querySelector(".modal-image");
 const closeModal = document.querySelector(".close-modal");
@@ -59,7 +130,7 @@ if (modal && modalImage && closeModal) {
   });
 }
 
-// ------- SMOOTH SCROLLING --------
+// ------- SMOOTH SCROLLING -------- - NO CHANGES BELOW HERE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", e => {
     e.preventDefault();
@@ -77,7 +148,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ------- HEADER SCROLL EFFECT ------
+// ------- HEADER SCROLL EFFECT ------ - NO CHANGES BELOW HERE
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
   if (!header) return;
@@ -85,7 +156,7 @@ window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 100);
 });
 
-// ------- COUNT-UP STATS ANIMATION -------
+// ------- COUNT-UP STATS ANIMATION ------- - NO CHANGES BELOW HERE
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".stat-value-large");
   const speed = 200;
@@ -124,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Swiper Client Project Gallery Slider
+// Swiper Client Project Gallery Slider - NO CHANGES BELOW HERE
 const clientSwiper = new Swiper(".clients-swiper", {
   slidesPerView: 4,
   spaceBetween: 20,
@@ -146,7 +217,7 @@ const clientSwiper = new Swiper(".clients-swiper", {
 const caseSwiper = new Swiper('.case-swiper', {
   slidesPerView: 1.1,
   spaceBetween: 30,
-  loop: true, // <-- this makes it endless
+  loop: true,
   centeredSlides: true,
   grabCursor: true,
   effect: 'coverflow',
@@ -159,7 +230,7 @@ const caseSwiper = new Swiper('.case-swiper', {
   },
   autoplay: {
     delay: 4000,
-    disableOnInteraction: false, // <-- continues autoplay even after interaction
+    disableOnInteraction: false,
   },
   pagination: {
     el: '.swiper-pagination',

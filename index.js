@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Mobile Menu Toggle =====
+  /* ===============================
+        MOBILE MENU TOGGLE
+  =============================== */
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
   const mainNav = document.getElementById("mainNav");
 
   if (mobileMenuBtn && mainNav) {
     mobileMenuBtn.addEventListener("click", () => {
-      mainNav.classList.toggle("active");
+      mainNav.classList.toggle("active"); // Make sure CSS uses "nav.active"
+      mobileMenuBtn.classList.toggle("open"); // Optional: toggle hamburger animation
     });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll("nav a").forEach(link => {
+    // Close mobile menu when clicking a link inside nav
+    mainNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         mainNav.classList.remove("active");
+        mobileMenuBtn.classList.remove("open");
       });
     });
   }
 
-  // ===== Form Submission =====
+  /* ===============================
+        FORM SUBMISSION
+  =============================== */
   const inquiryForm = document.getElementById("inquiryForm");
   if (inquiryForm) {
     inquiryForm.addEventListener("submit", e => {
@@ -26,52 +32,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Smooth Scrolling for Anchor Links =====
+  /* ===============================
+        SMOOTH SCROLL FOR ANCHORS
+  =============================== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute("href");
       if (targetId === "#") return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
+      e.preventDefault();
+      const target = document.querySelector(targetId);
+      if (target) {
         window.scrollTo({
-          top: targetElement.offsetTop - 100,
+          top: target.offsetTop - 100,
           behavior: "smooth",
         });
       }
     });
   });
 
-  // ===== Header Shadow on Scroll =====
+  /* ===============================
+        PREMIUM HEADER SCROLL EFFECT
+  =============================== */
   const header = document.querySelector("header");
+  let lastScrollY = window.scrollY;
+
   if (header) {
     window.addEventListener("scroll", () => {
-      header.style.boxShadow = window.scrollY > 100
-        ? "0 4px 12px rgba(0, 0, 0, 0.1)"
-        : "none";
+      const currentScroll = window.scrollY;
+
+      // Shrink header after 80px
+      if (currentScroll > 80) {
+        header.classList.add("header-small");
+      } else {
+        header.classList.remove("header-small", "header-transparent");
+      }
+
+      // Scroll direction
+      if (currentScroll > lastScrollY && currentScroll > 80) {
+        header.classList.add("header-transparent");
+      } else if (currentScroll < lastScrollY) {
+        header.classList.remove("header-transparent");
+      }
+
+      lastScrollY = currentScroll;
     });
   }
 
-  // ===== Hero Image Slideshow =====
+  /* ===============================
+        HERO IMAGE SLIDESHOW
+  =============================== */
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
   function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach(s => s.classList.remove("active"));
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].classList.add("active");
   }
 
-  function nextSlide() {
-    showSlide(currentSlide + 1);
+  if (slides.length) {
+    setInterval(() => showSlide(currentSlide + 1), 5000);
   }
 
-  if (slides.length > 0) {
-    setInterval(nextSlide, 5000); // Slide every 5s
-  }
-
-  // ===== Scroll Down Arrow =====
+  /* ===============================
+        SCROLL DOWN ARROW
+  =============================== */
   const scrollDown = document.querySelector(".scroll-down");
   if (scrollDown) {
     scrollDown.addEventListener("click", () => {
@@ -82,9 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Typewriter Effect =====
+  /* ===============================
+        TYPEWRITER EFFECT
+  =============================== */
   const typewriterElement = document.getElementById("typewriter");
-  const words = ["DrilSol (EA)", "Borehole Drilling", "Pump Installation", "Irrigation Systems", "Solar Water Systems"];
+  const words = [
+    "DrilSol (EA)",
+    "Borehole Drilling",
+    "Pump Installation",
+    "Irrigation Systems",
+    "Solar Water Systems"
+  ];
+
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -92,59 +126,50 @@ document.addEventListener("DOMContentLoaded", () => {
   function typeWriter() {
     if (!typewriterElement) return;
 
-    const currentWord = words[wordIndex];
+    const word = words[wordIndex];
 
     if (isDeleting) {
-      typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+      typewriterElement.textContent = word.substring(0, charIndex - 1);
       charIndex--;
     } else {
-      typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+      typewriterElement.textContent = word.substring(0, charIndex + 1);
       charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 50 : 100;
+    let speed = isDeleting ? 50 : 100;
 
-    if (!isDeleting && charIndex === currentWord.length) {
+    if (!isDeleting && charIndex === word.length) {
       isDeleting = true;
-      typeSpeed = 1000; // Pause at end
+      speed = 1000;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      typeSpeed = 500; // Pause before next word
+      speed = 500;
     }
 
-    setTimeout(typeWriter, typeSpeed);
+    setTimeout(typeWriter, speed);
   }
 
   if (typewriterElement) {
     setTimeout(typeWriter, 500);
   }
+
+  /* ===============================
+        SWIPER CLIENT LOGO SLIDER
+  =============================== */
+  const clientSwiper = new Swiper(".clients-swiper", {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    autoplay: { delay: 1500, disableOnInteraction: false },
+    effect: "coverflow",
+    coverflowEffect: { rotate: 40, stretch: 0, depth: 120, modifier: 2, slideShadows: true },
+    breakpoints: {
+      1024: { slidesPerView: 4 },
+      768: { slidesPerView: 3 },
+      480: { slidesPerView: 2 },
+      0: { slidesPerView: 1 },
+    },
+  });
 });
-
-// Swiper Client Logo Slider
-const clientSwiper = new Swiper(".clients-swiper", {
-  loop: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  spaceBetween: 30,
-  autoplay: {
-    delay: 1500,
-    disableOnInteraction: false,
-  },
-  effect: "coverflow",
-  coverflowEffect: {
-    rotate: 40,      // Rotation angle
-    stretch: 0,      // Space between slides
-    depth: 120,      // Slide depth (3D distance)
-    modifier: 2,     // Overall intensity
-    slideShadows: true, // Shadow for 3D realism
-  },
-  breakpoints: {
-    1024: { slidesPerView: 4 },
-    768: { slidesPerView: 3 },
-    480: { slidesPerView: 2 },
-    0: { slidesPerView: 1 },
-  },
-});
-
-

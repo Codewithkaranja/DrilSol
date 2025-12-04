@@ -1,18 +1,86 @@
-// Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const mainNav = document.getElementById("mainNav");
+/* ===============================
+      MOBILE MENU TOGGLE & HEADER EFFECTS
+=============================== */
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mainNav = document.getElementById("mainNav");
+const header = document.querySelector("header");
+const pageHeader = document.querySelector(".page-header");
+let lastScrollY = window.scrollY;
 
-      mobileMenuBtn.addEventListener("click", () => {
-        mainNav.classList.toggle("active");
-      });
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mainNav.classList.toggle("active");  // CHANGED: "mobile-active" to "active"
+    mobileMenuBtn.classList.toggle("open");
 
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll("nav a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mainNav.classList.remove("active");
-        });
-      });
+    // stagger links animation
+    const links = mainNav.querySelectorAll("a");
+    links.forEach((link, index) => {
+      link.style.transitionDelay = mainNav.classList.contains("active")  // CHANGED: "mobile-active" to "active"
+        ? `${index * 0.1}s`
+        : "0s";
+    });
+  });
+
+  // Close menu when a link is clicked
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("active");  // CHANGED: "mobile-active" to "active"
+      mobileMenuBtn.classList.remove("open");
+    });
+  });
+}
+
+// Header scroll effects
+if (header) {
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    // Shrink header
+    if (currentScroll > 80) {
+      header.classList.add("header-small");
+    } else {
+      header.classList.remove("header-small", "header-transparent");
+    }
+
+    // Scroll direction → transparency
+    if (currentScroll > lastScrollY && currentScroll > 80) {
+      header.classList.add("header-transparent");
+    } else if (currentScroll < lastScrollY) {
+      header.classList.remove("header-transparent");
+    }
+
+    // Sticky shadow
+    header.style.boxShadow = currentScroll > 100
+      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
+      : "none";
+
+    // Parallax effect
+    if (pageHeader) {
+      pageHeader.style.backgroundPositionY = currentScroll * 0.5 + "px";
+    }
+
+    lastScrollY = currentScroll;
+  });
+}
+
+// Fade-in header texts
+const headerTexts = document.querySelectorAll(".animate-text");
+if (headerTexts.length) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  headerTexts.forEach(el => {
+    el.style.animationPlayState = "paused";
+    observer.observe(el);
+  });
+}
+
 
       // System Tabs
       const systemTabs = document.querySelectorAll(".system-tab");
@@ -195,4 +263,3 @@ const benefitSwiper = new Swiper(".benefits-swiper", {
     0: { slidesPerView: 1 },
   },
 });
-

@@ -1,23 +1,111 @@
-// ========= Mobile Menu =========
+/* ===============================
+      MOBILE MENU TOGGLE & HEADER EFFECTS
+=============================== */
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const mainNav = document.getElementById("mainNav");
+const header = document.querySelector("header");
+const pageHeader = document.querySelector(".page-header");
+let lastScrollY = window.scrollY;
 
-mobileMenuBtn.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("active");
-  mobileMenuBtn.classList.toggle("open", isOpen);
-});
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mainNav.classList.toggle("mobile-active");
+    mobileMenuBtn.classList.toggle("open");
+    
+    // Add body class to prevent scrolling
+    document.body.classList.toggle("menu-open", mainNav.classList.contains("mobile-active"));
 
-// Close menu when clicking a link
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("active");
-    mobileMenuBtn.classList.remove("open");
+    // stagger links animation
+    const links = mainNav.querySelectorAll("a");
+    links.forEach((link, index) => {
+      link.style.transitionDelay = mainNav.classList.contains("mobile-active")
+        ? `${index * 0.1}s`
+        : "0s";
+    });
   });
-});
+
+  // Close menu when a link is clicked
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("mobile-active");
+      mobileMenuBtn.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    });
+  });
+
+  // Close menu when clicking outside (optional but good UX)
+  document.addEventListener("click", (e) => {
+    if (mainNav.classList.contains("mobile-active") && 
+        !mainNav.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+      mainNav.classList.remove("mobile-active");
+      mobileMenuBtn.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+  });
+}
+
+// Header scroll effects
+if (header) {
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    // Shrink header
+    if (currentScroll > 80) {
+      header.classList.add("header-small");
+    } else {
+      header.classList.remove("header-small", "header-transparent");
+    }
+
+    // Scroll direction → transparency
+    if (currentScroll > lastScrollY && currentScroll > 80) {
+      header.classList.add("header-transparent");
+    } else if (currentScroll < lastScrollY) {
+      header.classList.remove("header-transparent");
+    }
+
+    // Sticky shadow
+    header.style.boxShadow = currentScroll > 100
+      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
+      : "none";
+
+    // Parallax effect
+    if (pageHeader) {
+      pageHeader.style.backgroundPositionY = currentScroll * 0.5 + "px";
+    }
+
+    lastScrollY = currentScroll;
+  });
+}
+
+// Fade-in header texts
+const headerTexts = document.querySelectorAll(".animate-text");
+if (headerTexts.length) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  headerTexts.forEach(el => {
+    el.style.animationPlayState = "paused";
+    observer.observe(el);
+  });
+}
 
 // ========= Smooth Scrolling =========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
+    // Close mobile menu if open
+    if (mainNav && mainNav.classList.contains("mobile-active")) {
+      mainNav.classList.remove("mobile-active");
+      mobileMenuBtn.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+    
     const targetId = this.getAttribute("href");
     if (targetId === "#") return;
     e.preventDefault();
@@ -28,11 +116,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ========= Sticky Header Background =========
-const header = document.querySelector("header");
-window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 100);
-});
 
 // ========= FAQ Accordion =========
 document.querySelectorAll(".faq-item").forEach(item => {
@@ -97,4 +180,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
