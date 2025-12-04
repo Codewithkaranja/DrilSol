@@ -7,24 +7,23 @@ const header = document.querySelector("header");
 const pageHeader = document.querySelector(".page-header");
 let lastScrollY = window.scrollY;
 
+/* ===============================
+      MOBILE MENU
+=============================== */
 if (mobileMenuBtn && mainNav) {
   mobileMenuBtn.addEventListener("click", () => {
-    mainNav.classList.toggle("mobile-active");
+    const isOpen = mainNav.classList.toggle("mobile-active");
     mobileMenuBtn.classList.toggle("open");
-    
-    // Add body class to prevent scrolling
-    document.body.classList.toggle("menu-open", mainNav.classList.contains("mobile-active"));
+    document.body.classList.toggle("menu-open", isOpen);
 
-    // stagger links animation
+    // stagger link animations
     const links = mainNav.querySelectorAll("a");
     links.forEach((link, index) => {
-      link.style.transitionDelay = mainNav.classList.contains("mobile-active")
-        ? `${index * 0.1}s`
-        : "0s";
+      link.style.transitionDelay = isOpen ? `${index * 0.1}s` : "0s";
     });
   });
 
-  // Close menu when a link is clicked
+  // Close menu when clicking any link
   mainNav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       mainNav.classList.remove("mobile-active");
@@ -33,11 +32,13 @@ if (mobileMenuBtn && mainNav) {
     });
   });
 
-  // Close menu when clicking outside (optional but good UX)
+  // Close menu when clicking outside
   document.addEventListener("click", (e) => {
-    if (mainNav.classList.contains("mobile-active") && 
-        !mainNav.contains(e.target) && 
-        !mobileMenuBtn.contains(e.target)) {
+    if (
+      mainNav.classList.contains("mobile-active") &&
+      !mainNav.contains(e.target) &&
+      !mobileMenuBtn.contains(e.target)
+    ) {
       mainNav.classList.remove("mobile-active");
       mobileMenuBtn.classList.remove("open");
       document.body.classList.remove("menu-open");
@@ -45,79 +46,82 @@ if (mobileMenuBtn && mainNav) {
   });
 }
 
-// Header scroll effects
+/* ===============================
+      HEADER SCROLL EFFECTS
+=============================== */
 if (header) {
   window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
+    const current = window.scrollY;
 
     // Shrink header
-    if (currentScroll > 80) {
-      header.classList.add("header-small");
-    } else {
-      header.classList.remove("header-small", "header-transparent");
-    }
+    header.classList.toggle("header-small", current > 80);
 
-    // Scroll direction → transparency
-    if (currentScroll > lastScrollY && currentScroll > 80) {
+    // Scroll direction transparency
+    if (current > lastScrollY && current > 80) {
       header.classList.add("header-transparent");
-    } else if (currentScroll < lastScrollY) {
+    } else {
       header.classList.remove("header-transparent");
     }
 
-    // Sticky shadow
-    header.style.boxShadow = currentScroll > 100
-      ? "0 4px 12px rgba(0, 0, 0, 0.1)"
-      : "none";
+    // Header shadow when sticky
+    header.style.boxShadow =
+      current > 100 ? "0 4px 12px rgba(0, 0, 0, 0.1)" : "none";
 
-    // Parallax effect
-    if (pageHeader) {
-      pageHeader.style.backgroundPositionY = currentScroll * 0.5 + "px";
-    }
-
-    lastScrollY = currentScroll;
+    lastScrollY = current;
   });
 }
 
-// Fade-in header texts
+/* ===============================
+      FADE-IN HEADER TEXT
+=============================== */
 const headerTexts = document.querySelectorAll(".animate-text");
 if (headerTexts.length) {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = "running";
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+  const textObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
   headerTexts.forEach(el => {
     el.style.animationPlayState = "paused";
-    observer.observe(el);
+    textObserver.observe(el);
   });
 }
 
-// ========= Smooth Scrolling =========
+/* ===============================
+      SMOOTH SCROLLING
+=============================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
+    const id = this.getAttribute("href");
+
+    if (id === "#") return;
+
+    e.preventDefault();
+
     // Close mobile menu if open
-    if (mainNav && mainNav.classList.contains("mobile-active")) {
+    if (mainNav?.classList.contains("mobile-active")) {
       mainNav.classList.remove("mobile-active");
       mobileMenuBtn.classList.remove("open");
       document.body.classList.remove("menu-open");
     }
-    
-    const targetId = this.getAttribute("href");
-    if (targetId === "#") return;
-    e.preventDefault();
-    document.querySelector(targetId)?.scrollIntoView({
+
+    document.querySelector(id)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   });
 });
 
-
-// ========= FAQ Accordion =========
+/* ===============================
+      FAQ ACCORDION
+=============================== */
 document.querySelectorAll(".faq-item").forEach(item => {
   item.querySelector(".faq-question").addEventListener("click", () => {
     document.querySelectorAll(".faq-item").forEach(other => {
@@ -127,8 +131,10 @@ document.querySelectorAll(".faq-item").forEach(item => {
   });
 });
 
-// ========= Scroll Reveal (Intersection Observer) =========
-const observer = new IntersectionObserver(
+/* ===============================
+      SCROLL REVEAL (IntersectionObserver)
+=============================== */
+const revealObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("active");
@@ -137,60 +143,34 @@ const observer = new IntersectionObserver(
   { threshold: 0.2 }
 );
 
-document.querySelectorAll(".reveal, .page-header").forEach(el => observer.observe(el));
+document.querySelectorAll(".reveal, .page-header").forEach(el =>
+  revealObserver.observe(el)
+);
 
-// ========= Parallax Background (Smooth & Optimized) =========
+/* ===============================
+      PARALLAX EFFECT (Optimized)
+=============================== */
 let ticking = false;
+
 window.addEventListener("scroll", () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
-      const headerBg = document.querySelector(".page-header");
-      if (headerBg) {
-        headerBg.style.backgroundPositionY = window.scrollY * 0.3 + "px";
+      if (pageHeader) {
+        pageHeader.style.backgroundPositionY = window.scrollY * 0.3 + "px";
       }
       ticking = false;
     });
     ticking = true;
   }
 });
-// ===== Scroll Reveal + Parallax =====
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector(".page-header");
-  const revealElements = document.querySelectorAll(".reveal");
 
-  // Intersection Observer for reveal
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    }, { threshold: 0.3 }
-  );
-
-  // Observe header + other sections
-  if(header) observer.observe(header);
-  revealElements.forEach(el => observer.observe(el));
-
-  // Parallax effect for header
-  window.addEventListener("scroll", () => {
-    if(header) {
-      header.style.backgroundPositionY = window.scrollY * 0.4 + "px";
-    }
-  });
-});
-
-// Enable dropdown open on mobile
-document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+/* ===============================
+      MOBILE DROPDOWN MENU
+=============================== */
+document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
   toggle.addEventListener("click", function (e) {
-    // If this link has a real page (services.html), allow normal click on desktop
-    if (window.innerWidth > 992) return;
-
-    // Prevent navigation (mobile only)
+    if (window.innerWidth > 992) return; // desktop ignores click
     e.preventDefault();
-
-    const parent = this.parentElement;
-    parent.classList.toggle("dropdown-open");
+    this.parentElement.classList.toggle("dropdown-open");
   });
 });
