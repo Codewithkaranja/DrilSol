@@ -321,6 +321,32 @@ header.header-small:not(.header-transparent) .logo-img {
   transform: rotate(-180deg);
 }
 
+/* Hide dropdown by default */
+.has-dropdown .dropdown {
+  display: none;
+}
+
+/* Show dropdown when opened on mobile */
+.has-dropdown.dropdown-open .dropdown {
+  display: block;
+}
+
+/* Optional – style mobile dropdown */
+@media (max-width: 992px) {
+  .dropdown {
+    background: white;
+    padding: 10px 0;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+  }
+  .has-dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
 .mobile-menu-btn {
   display: none;
   background: none;

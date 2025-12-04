@@ -180,3 +180,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Enable dropdown open on mobile
+document.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+  toggle.addEventListener("click", function (e) {
+    // If this link has a real page (services.html), allow normal click on desktop
+    if (window.innerWidth > 992) return;
+
+    // Prevent navigation (mobile only)
+    e.preventDefault();
+
+    const parent = this.parentElement;
+    parent.classList.toggle("dropdown-open");
+  });
+});
