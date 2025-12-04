@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
   =============================== */
   const typewriterElement = document.getElementById("typewriter");
   const words = [
-    "DrilSol (EA)",
+    "' Good To Drill '",
     "Borehole Drilling",
     "Pump Installation",
     "Irrigation Systems",

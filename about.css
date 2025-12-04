@@ -431,7 +431,7 @@ header.header-small:not(.header-transparent) .logo-img {
   letter-spacing: 0.3px;
   font-weight: 500;
   line-height: 1.2;
-  font-size: 2.8rem;
+  font-size: 2.0rem;
   margin-bottom: 1.5rem;
   color: var(--accent-blue);
   position: relative;

@@ -27,7 +27,13 @@
         font-family: "Jost", sans-serif;
         line-height: 1.6;
         color: var(--slate-gray);
-        background-color: var(--white);
+        background: linear-gradient(
+      rgba(238, 239, 240, 0.9), 
+      rgba(248, 249, 250, 0.9)
+    ),
+    url("https://drilsol.com/wp-content/uploads/2022/07/Drisol-Slide-Five.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
       }
 
       h1,
@@ -994,6 +1000,7 @@ header.header-small:not(.header-transparent) .logo-img {
         color: var(--solar-yellow);
         margin-bottom: 1.5rem;
         font-size: 1.2rem;
+        font-weight: 400;
       }
 
       .footer-column ul {
