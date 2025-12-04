@@ -428,7 +428,7 @@ header.header-small:not(.header-transparent) .logo-img {
   height: 70px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  background: #0077ff;
+  background: var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
