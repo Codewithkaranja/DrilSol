@@ -157,7 +157,7 @@ header {
   left: 0;
   width: 100%;
   padding: 0;
-  background-color: rgb(59, 185, 235);
+  background-color: transparent;
   box-shadow: var(--shadow);
   z-index: 1000;
   transition: background-color 0.35s ease, 
@@ -179,7 +179,7 @@ header {
 }
 
 .logo-img {
-  height: 100px;
+  height: 150px;
   width: auto;
   margin-right: 12px;
   transition: height 0.35s ease;
@@ -202,7 +202,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #000;
+  color:white;
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
@@ -216,7 +216,7 @@ nav ul li a:after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--accent-blue);
+  background-color: transparent;
   transition: width 0.3s ease;
 }
 
@@ -254,11 +254,11 @@ header.header-small:not(.header-transparent) nav ul li a {
 }
 
 header.header-small:not(.header-transparent) {
-  background-color: rgb(59, 185, 235);
+  background-color: transparent;
 }
 
 header.header-small:not(.header-transparent) .logo-img {
-  height: 70px;
+  height: 120px;
 }
 
 .mobile-menu-btn {

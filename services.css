@@ -156,7 +156,7 @@ header {
   left: 0;
   width: 100%;
   padding:  0;
-  background-color: rgb(59, 185, 235);
+  background-color: rgba(0, 0, 0, 0.603);
   box-shadow: var(--shadow);
   z-index: 1000;
   transition: background-color 0.35s ease, 
@@ -201,7 +201,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #000;
+  color: white;
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
@@ -240,7 +240,7 @@ header.header-small.header-transparent {
 }
 
 header.header-small .logo-img {
-  height: 65px;
+  height: 100px;
 }
 
 header.header-small .logo-text {
@@ -249,15 +249,15 @@ header.header-small .logo-text {
 
 header.header-small.header-transparent nav ul li a,
 header.header-small:not(.header-transparent) nav ul li a {
-  color: #ffffff;
+  color: black;
 }
 
 header.header-small:not(.header-transparent) {
-  background-color: rgb(59, 185, 235);
+  background-color: transparent;
 }
 
 header.header-small:not(.header-transparent) .logo-img {
-  height: 70px;
+  height: 130px;
 }
 
 /* Parent li with dropdown */
