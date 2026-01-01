@@ -31,7 +31,7 @@
       rgba(238, 239, 240, 0.9), 
       rgba(248, 249, 250, 0.9)
     ),
-    url("https://drilsol.com/wp-content/uploads/2022/07/Drisol-Slide-Five.png") no-repeat center center;
+    url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
       }
@@ -277,7 +277,7 @@ header.header-small:not(.header-transparent) .logo-img {
   position: relative;
   height: 70vh;
   background: linear-gradient(rgba(0, 0, 0, 0.267), rgba(0, 0, 0, 0.247)),
-              url("https://drilsol.com/wp-content/uploads/2022/07/Drisol-Slide-Two.png");
+              url("drilsol\ lorry1.webp");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -494,7 +494,7 @@ header.header-small:not(.header-transparent) .logo-img {
   margin-top: 4rem;
   padding-bottom: 2rem;
   background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
 }

@@ -448,7 +448,7 @@ header.header-small:not(.header-transparent) .logo-img {
 .benefits-section {
   padding: 5rem 0;
   background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
-    url("WhatsApp Image 2025-11-27 at 20.12.18_d3f0f74b.jpg");
+    url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
   background-size: cover;
   background-position: center;
   font-family: 'Poppins', sans-serif;
@@ -649,7 +649,7 @@ header.header-small:not(.header-transparent) .logo-img {
      /* Comparison Section */
 .comparison-section {
   background: linear-gradient(rgba(238, 239, 240, 0.918), rgba(248, 249, 250, 0.788)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
   padding: 4rem 0;
@@ -1064,7 +1064,7 @@ color: var(--solar-yellow);
       /* FAQ Section */
       .faq-section {
          background: linear-gradient(rgba(238, 239, 240, 0.973), rgba(248, 249, 250, 0.788)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
       }

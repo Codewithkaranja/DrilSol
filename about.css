@@ -276,7 +276,7 @@ header.header-small:not(.header-transparent) .logo-img {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url("https://drilsol.com/wp-content/uploads/2022/07/Drilsol-Drilling-Of-Water-Well.png");
+    url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -526,7 +526,7 @@ header.header-small:not(.header-transparent) .logo-img {
       .mission-vision {
         padding: 5rem 0;
         background: linear-gradient(rgba(238, 239, 240, 0.925), rgba(248, 249, 250, 0.568)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
       }
@@ -605,7 +605,7 @@ header.header-small:not(.header-transparent) .logo-img {
       .team-section {
         padding: 5rem 0;
          background: linear-gradient(rgba(27, 28, 29, 0.925), rgba(83, 84, 85, 0.568)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
       }
@@ -727,7 +727,7 @@ header.header-small:not(.header-transparent) .logo-img {
       /* Why Choose Us */
       .why-choose-us {
         background: linear-gradient(rgba(12, 12, 12, 0.884), rgba(1, 4, 8, 0.979)),
-          url("https://drilsol.com/wp-content/uploads/2022/07/Drisol-Slide-One.png");
+          url("drilsol\ lorry1.webp");
         background-size: cover;
         background-position: center;
         color: var(--white);
@@ -816,6 +816,7 @@ header.header-small:not(.header-transparent) .logo-img {
         background-color: var(--light-gray);
         color: rgba(255, 255, 255, 0.568);
       }
+      
       .certifications h2{
         color: var(--accent-blue);
       }
@@ -855,7 +856,7 @@ header.header-small:not(.header-transparent) .logo-img {
       .timeline-section {
         padding: 5rem 0;
          background: linear-gradient(rgba(238, 239, 240, 0.925), rgba(248, 249, 250, 0.568)),
-          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.jpg");
+          url("WhatsApp\ Image\ 2025-11-27\ at\ 20.12.18_d3f0f74b.webp");
         background-size: cover;
         background-position: center;
       }
