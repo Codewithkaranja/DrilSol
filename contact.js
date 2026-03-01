@@ -147,6 +147,9 @@ if (contactForm) {
   });
 }
 
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 // FAQ Accordion
 const faqItems = document.querySelectorAll(".faq-item");
 faqItems.forEach((item) => {

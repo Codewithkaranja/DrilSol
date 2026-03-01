@@ -147,6 +147,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ------- HEADER SCROLL EFFECT ------ - NO CHANGES BELOW HERE
 window.addEventListener("scroll", () => {

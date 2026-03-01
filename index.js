@@ -153,7 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typewriterElement) {
     setTimeout(typeWriter, 500);
   }
-
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
   /* ===============================
         SWIPER CLIENT LOGO SLIDER
   =============================== */

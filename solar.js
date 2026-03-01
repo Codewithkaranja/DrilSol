@@ -247,6 +247,9 @@ var swiper = new Swiper(".mySwiper", {
   stats.forEach((stat) => observer.observe(stat));
 });
 
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 //benefits swiper slider
 const benefitSwiper = new Swiper(".benefits-swiper", {
   slidesPerView: 3,

@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
   // -------------------------------
   // HEADER SCROLL EFFECTS
   // -------------------------------
@@ -203,41 +204,67 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Why Choose Us Swiper
-  const chooseSwiper = document.querySelector(".chooseSwiper");
-  if (chooseSwiper) {
-    var chooseSlider = new Swiper(".chooseSwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      loop: true,
-      slidesPerView: "auto",
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
+const chooseSwiperEl = document.querySelector(".chooseSwiper");
+
+if (chooseSwiperEl) {
+  const chooseSlider = new Swiper(chooseSwiperEl, {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+
+    // 🔑 Prevents content cutting on mobile
+    autoHeight: true,
+
+    // Cleaner slide control
+    slidesPerView: 1,
+    spaceBetween: 20,
+
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+      slideShadows: false,
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    // Responsive slides
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 16,
       },
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 250,
-        modifier: 1,
-        slideShadows: false,
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 30,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1200: { slidesPerView: 3 },
-      },
-    });
-  }
+    },
+
+    // Helps Swiper recalc height on resize
+    observer: true,
+    observeParents: true,
+  });
+}
 
   // -------------------------------
   // TEAM MEMBER HOVER ANIMATION
